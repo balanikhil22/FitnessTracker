@@ -58,7 +58,7 @@ function SideNavUser() {
                     name="search-outline"
                     aria-label="search-workout"
                   ></ion-icon>
-                  Search Workouts
+                  All Workouts
                 </NavLink>
               </li>
               <li>

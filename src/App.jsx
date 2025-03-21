@@ -15,8 +15,10 @@ import BMICalculate from "./components/features/BMICalculate";
 import EditProfile from "./components/features/EditProfile";
 import Weather from "./components/features/Weather";
 import AdminManagement from "./components/admin/AdminManagement";
+import WorkoutManagement from "./components/admin/WorkoutManagement";
 import SearchWorkouts from "./components/features/SearchWorkouts";
 import ForgotPassword from "./components/auth/ForgotPassword";
+import MyWorkouts from "./components/features/MyWorkouts";
 
 function App() {
   const userRole = localStorage.getItem("userRole");
@@ -53,6 +55,7 @@ function App() {
             <Route path="bmi-calculator" element={<BMICalculate />} />
             <Route path="profile" element={<EditProfile />} />
             <Route path="weather" element={<Weather />} />
+            <Route path="myworkouts" element={<MyWorkouts />} />
             <Route path="workouts" element={<SearchWorkouts />} />
           </Route>
 
@@ -67,6 +70,7 @@ function App() {
             }
           >
             <Route path="manage-admins" element={<AdminManagement />} />
+            <Route path="manage-workouts" element={<WorkoutManagement />} />
           </Route>
 
           {/* 404 Not Found */}

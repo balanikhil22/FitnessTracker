@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: "fittrack-60e39",
   storageBucket: "fittrack-60e39.firebasestorage.app",
   messagingSenderId: "618974358536",
-  appId: "1:618974358536:web:0e39957bec97ccd9e635bd"
+  appId: "1:618974358536:web:0e39957bec97ccd9e635bd",
 };
 
 // Initialize Firebase
