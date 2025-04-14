@@ -19,6 +19,7 @@ import WorkoutManagement from "./components/admin/WorkoutManagement";
 import SearchWorkouts from "./components/features/SearchWorkouts";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import MyWorkouts from "./components/features/MyWorkouts";
+import Goals from "./components/features/Goals";
 
 function App() {
   const userRole = localStorage.getItem("userRole");
@@ -57,6 +58,7 @@ function App() {
             <Route path="weather" element={<Weather />} />
             <Route path="myworkouts" element={<MyWorkouts />} />
             <Route path="workouts" element={<SearchWorkouts />} />
+            <Route path="goals" element={<Goals />} />
           </Route>
 
           {/* Protected Routes for Admins */}
