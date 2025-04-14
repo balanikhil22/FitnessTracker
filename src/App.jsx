@@ -20,6 +20,7 @@ import SearchWorkouts from "./components/features/SearchWorkouts";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import MyWorkouts from "./components/features/MyWorkouts";
 import Goals from "./components/features/Goals";
+import Feedback from "./components/features/Feedback";
 import ProgressReports from "./components/features/ProgressReports";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
             <Route path="workouts" element={<SearchWorkouts />} />
             <Route path="goals" element={<Goals />} />
             <Route path="progress-reports" element={<ProgressReports />} />
+            <Route path="feedback" element={<Feedback />} />
           </Route>
 
           {/* Protected Routes for Admins */}
