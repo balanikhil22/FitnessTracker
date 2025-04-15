@@ -20,6 +20,21 @@ function SideNavUser() {
             <ul className="mb-6 flex flex-col gap-1.5">
               <li>
                 <NavLink
+                  to="/home/dashboard"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-blue-800 dark:hover:bg-meta-4 
+                    bg-blue-900 dark:bg-meta-4
+                  `}
+                >
+                  <ion-icon
+                    name="speedometer-outline"
+                    aria-label="dashboard"
+                  ></ion-icon>
+                  Dashboard
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
                   to="/home/bmi-calculator"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-blue-800 dark:hover:bg-meta-4 
                     bg-blue-900 dark:bg-meta-4

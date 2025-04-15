@@ -19,21 +19,38 @@ const WaterIntakeTracker = () => {
     const today = new Date();
     const filteredData = data.filter((entry) => {
       const entryDate = new Date(entry.date);
-      return view === "weekly"
-        ? (today - entryDate) / (1000 * 60 * 60 * 24) <= 7
-        : entryDate.getFullYear() === today.getFullYear();
+      if (view === "daily") {
+        return (today - entryDate) / (1000 * 60 * 60 * 24) <= 1;
+      }
+      if (view === "weekly") {
+        return (today - entryDate) / (1000 * 60 * 60 * 24) <= 7;
+      }
+      if (view === "monthly") {
+        return entryDate.getFullYear() === today.getFullYear();
+      }
     });
 
     const groupedData = {};
     filteredData.forEach((entry) => {
-      const dateStr =
-        view === "weekly"
-          ? new Date(entry.date).toLocaleDateString("en-US", {
-              weekday: "short",
-            })
-          : new Date(entry.date).toLocaleDateString("en-US", {
-              month: "short",
-            });
+      let dateStr = "";
+      if (view === "daily") {
+        dateStr = new Date(entry.date).toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+      if (view === "weekly") {
+        dateStr = new Date(entry.date).toLocaleDateString("en-US", {
+          weekday: "short",
+        });
+      }
+      if (view === "monthly") {
+        dateStr = new Date(entry.date).toLocaleDateString("en-US", {
+          month: "short",
+        });
+      }
 
       groupedData[dateStr] = (groupedData[dateStr] || 0) + entry.amount;
     });
@@ -176,6 +193,7 @@ const WaterIntakeTracker = () => {
             onChange={(e) => setView(e.target.value)}
             className="rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black dark:border-form-strokedark dark:bg-form-input "
           >
+            <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
           </select>
@@ -184,7 +202,8 @@ const WaterIntakeTracker = () => {
 
       <div className="mt-8 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-7">
         <h3 className="font-medium text-black  mb-6">
-          Water Intake - Last {view === "weekly" ? "7 Days" : "Year"}
+          Water Intake - Last {view === "daily" && "Day"}{" "}
+          {view === "weekly" && "7 Days"} {view === "monthly" && "Year"}
         </h3>
         <ReactApexChart
           options={{

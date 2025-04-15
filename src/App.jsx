@@ -7,6 +7,7 @@ import {
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import UserDashboard from "./components/dashboard/UserDashboard";
 import AdminDashboard from "./components/dashboard/AdminDashboard";
 import { AuthProvider } from "./contexts/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -54,6 +55,7 @@ function App() {
               <ProtectedRoute element={<Dashboard />} requiredRole="user" />
             }
           >
+            <Route path="dashboard" element={<UserDashboard />} />
             <Route path="water-intake" element={<WaterIntakeTracker />} />
             <Route path="bmi-calculator" element={<BMICalculate />} />
             <Route path="profile" element={<EditProfile />} />

@@ -15,6 +15,7 @@ const MyWorkouts = () => {
       const myWorkoutsRef = ref(database, `users/${userId}/myWorkouts`);
       get(myWorkoutsRef).then((snapshot) => {
         const data = snapshot.val();
+        console.log(data);
         const myWorkoutsArray = data
           ? Object.keys(data).map((key) => ({ id: key, ...data[key] }))
           : [];
