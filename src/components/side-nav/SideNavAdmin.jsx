@@ -60,6 +60,19 @@ function SideNavAdmin() {
                   Manage Feedback
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink
+                  to="/admin/manage-faqs"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 bg-graydark dark:bg-meta-4`}
+                >
+                  <ion-icon
+                    name="help-circle-outline"
+                    aria-label="manage-faqs"
+                  ></ion-icon>
+                  Manage FAQ
+                </NavLink>
+              </li>
             </ul>
           </div>
         </nav>

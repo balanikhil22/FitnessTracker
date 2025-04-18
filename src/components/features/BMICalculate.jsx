@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ref, onValue } from "firebase/database";
+import { database } from "../../firebase/firebase";
+import { useAuth } from "../../contexts/authContext";
 
 const BMICalculate = () => {
+  const { currentUser } = useAuth();
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [bmi, setBMI] = useState(null);
   const [bmiCategory, setBMICategory] = useState("");
+
+  useEffect(() => {
+    if (currentUser?.uid) {
+      const userRef = ref(database, `users/${currentUser.uid}`);
+      onValue(userRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data?.weight && data?.height) {
+          setWeight(data.weight);
+          setHeight(data.height);
+        }
+      });
+    }
+  }, [currentUser]);
 
   const calculateBMI = (weight, height) => {
     return (weight / Math.pow(height / 100, 2)).toFixed(2);
@@ -42,7 +59,7 @@ const BMICalculate = () => {
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-5.5 p-7">
               <div className="mb-5">
-                <label className="mb-3 block text-black" for="weight">
+                <label className="mb-3 block text-black" htmlFor="weight">
                   Weight (kg)
                 </label>
                 <input
@@ -57,7 +74,7 @@ const BMICalculate = () => {
               </div>
 
               <div className="mb-5">
-                <label className="mb-3 block text-black " for="height">
+                <label className="mb-3 block text-black" htmlFor="height">
                   Height (cm)
                 </label>
                 <input
@@ -84,10 +101,10 @@ const BMICalculate = () => {
         <div className="flex flex-col gap-9">
           {bmi && (
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-7">
-              <h3 className="font-medium text-black ">Your BMI Result</h3>
+              <h3 className="font-medium text-black">Your BMI Result</h3>
               <div className="mt-4 text-center">
                 <p className="text-4xl font-bold text-primary">{bmi}</p>
-                <p className="mt-2 text-lg text-black ">
+                <p className="mt-2 text-lg text-black">
                   BMI Category:{" "}
                   <span className="font-semibold text-secondary">
                     {bmiCategory}

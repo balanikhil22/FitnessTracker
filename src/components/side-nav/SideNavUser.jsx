@@ -7,13 +7,13 @@ function SideNavUser() {
       className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden duration-300 ease-linear lg:static lg:translate-x-0 translate-x-0 bg-blue-900`}
     >
       <div className="flex items-center justify-between gap-2 px-6 pt-6 lg:py-6.5">
-        <h2 className="mb-4 ml-4 text-lg font-semibold text-bodydark2">
+        <h2 className="ml-4 text-lg font-semibold text-bodydark2">
           <Logo />
         </h2>
       </div>
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
+        <nav className="py-4 px-4 lg:px-6">
           <div>
             <h3 className="mb-4 ml-4 text-sm font-semibold text-white">MENU</h3>
 
@@ -187,6 +187,20 @@ function SideNavUser() {
                   Progress Reports
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink
+                  to="/home/weather"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-blue-800 dark:hover:bg-meta-4 bg-blue-900 dark:bg-meta-4
+                  }`}
+                >
+                  <ion-icon
+                    name="sunny-outline"
+                    aria-label="search-workout"
+                  ></ion-icon>
+                  Workout Recommendation
+                </NavLink>
+              </li>
             </ul>
           </div>
 
@@ -196,6 +210,20 @@ function SideNavUser() {
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">
+              <li>
+                <NavLink
+                  to="/home/faq"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-blue-800 dark:hover:bg-meta-4 bg-blue-900 dark:bg-meta-4
+                  }`}
+                >
+                  <ion-icon
+                    name="help-circle-outline"
+                    aria-label="faq"
+                  ></ion-icon>
+                  FAQ
+                </NavLink>
+              </li>
+
               <li>
                 <NavLink
                   to="/home/feedback"

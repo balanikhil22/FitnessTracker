@@ -62,6 +62,16 @@ const menuItems = [
     ),
   },
   {
+    label: "Weather",
+    path: "/home/weather",
+    icon: "sunny-outline",
+  },
+  {
+    label: "FAQ",
+    path: "/home/faq",
+    icon: "help-circle-outline",
+  },
+  {
     label: "Feedback",
     path: "/home/feedback",
     icon: "chatbubble-outline",

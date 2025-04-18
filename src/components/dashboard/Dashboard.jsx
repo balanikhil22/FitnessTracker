@@ -22,7 +22,7 @@ function Dashboard() {
   // Redirect to '/home/bmi-calculator' if user is on '/home'
   useEffect(() => {
     if (location.pathname === "/home") {
-      navigate("/home/bmi-calculator", { replace: true });
+      navigate("/home/dashboard", { replace: true });
     }
   }, [location.pathname, navigate]);
 

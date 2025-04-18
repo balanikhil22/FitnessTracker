@@ -17,10 +17,12 @@ import EditProfile from "./components/features/EditProfile";
 import Weather from "./components/features/Weather";
 import AdminManagement from "./components/admin/AdminManagement";
 import WorkoutManagement from "./components/admin/WorkoutManagement";
+import FeedbackManagement from "./components/admin/FeedbackManagement";
 import SearchWorkouts from "./components/features/SearchWorkouts";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import MyWorkouts from "./components/features/MyWorkouts";
 import Goals from "./components/features/Goals";
+import FAQ from "./components/features/FAQ";
 import Feedback from "./components/features/Feedback";
 import ProgressReports from "./components/features/ProgressReports";
 
@@ -64,6 +66,7 @@ function App() {
             <Route path="workouts" element={<SearchWorkouts />} />
             <Route path="goals" element={<Goals />} />
             <Route path="progress-reports" element={<ProgressReports />} />
+            <Route path="faq" element={<FAQ />} />
             <Route path="feedback" element={<Feedback />} />
           </Route>
 
@@ -79,6 +82,8 @@ function App() {
           >
             <Route path="manage-admins" element={<AdminManagement />} />
             <Route path="manage-workouts" element={<WorkoutManagement />} />
+            <Route path="manage-feedbacks" element={<FeedbackManagement />} />
+            <Route path="manage-faqs" element={<FAQ />} />
           </Route>
 
           {/* 404 Not Found */}
