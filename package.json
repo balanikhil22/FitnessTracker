@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@kommunicate/kommunicate-chatbot-plugin": "^0.0.7",
     "apexcharts": "^3.54.0",
     "firebase": "^10.14.1",
     "react": "^18.3.1",

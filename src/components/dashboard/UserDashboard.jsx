@@ -62,7 +62,7 @@ const menuItems = [
     ),
   },
   {
-    label: "Weather",
+    label: "Workout Recommendation",
     path: "/home/weather",
     icon: "sunny-outline",
   },
